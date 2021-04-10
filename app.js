@@ -163,21 +163,38 @@ function fetchComments($id) {
 }
 
 function setComment($id) {
+    let comment =$.trim($('#message-text').val()); 
+    let score =$.trim($('#score').val());
 
-    //TODO complete implementation using the product id
-    alert("app.js/setComment() not implemented")
+    $.ajax({
+        url: Url+'SetComment',
+        type: 'post',
+        dataType: 'json',
+        data: JSON.stringify({"product_id": $id, "comment" : comment, "score" : score}),
+        contentType: 'text/plain',
 
-    //HINT
-    //Take note of how the Ajax call in app.js/fetchComments() posts a GET request to corresponding API endpoint.
-    //Look at the Microservice API Documentation and find out the appripriate type of request for this action.
+        success: function (data) {},
+        error: function (data) {}
+    });
+    
 
 }
 
 function addToCart($id) {
+    let email =$.trim($('#email').val()); 
+    
+    $.ajax({
+        url: Url+'AddToCart',
+        type: 'post',
+        dataType: 'json',
+        data: JSON.stringify({"product_id":$id, "email" : email}),
+        contentType: 'text/plain',
 
-    //TODO complete implementation using the product id
-    alert("app.js/addToCart() not implemented")
-
+        success: function (data) {
+            alert("success");
+        },
+        error: function (data) {}
+    });    
 
 }
 
