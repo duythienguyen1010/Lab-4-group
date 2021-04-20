@@ -163,13 +163,19 @@ function fetchComments($id) {
 }
 
 function setComment($id) {
+<<<<<<< HEAD
     let comment =$.trim($('#message-text').val()); 
     let score =$.trim($('#score').val());
+=======
+    let comment =$.trim($('#message-text').val()); //gets the user's email
+    let score =$.trim($('#score').val()); //gets the user's email
+>>>>>>> 88cc20e7798ba4d0a8148ebfdbc1a120236fa3a8
 
     $.ajax({
         url: Url+'SetComment',
         type: 'post',
         dataType: 'json',
+<<<<<<< HEAD
         data: JSON.stringify({"product_id": $id, "comment" : comment, "score" : score}),
         contentType: 'text/plain',
 
@@ -177,10 +183,23 @@ function setComment($id) {
         error: function (data) {}
     });
     
+=======
+        data: JSON.stringify({"product_id":$id, "comment": comment, "score": score}),
+        contentType: 'text/plain',
+
+        success: function (data) { //on success
+            alert("Success.");
+        },
+        error: function (data) { //on error, throw an alert
+            alert("Error while fetching data.");
+        }
+    });
+>>>>>>> 88cc20e7798ba4d0a8148ebfdbc1a120236fa3a8
 
 }
 
 function addToCart($id) {
+<<<<<<< HEAD
     let email =$.trim($('#email').val()); 
     
     $.ajax({
@@ -195,6 +214,24 @@ function addToCart($id) {
         },
         error: function (data) {}
     });    
+=======
+    let email =$.trim($('#email').val()); //gets the user's email
+
+    $.ajax({
+        url: Url+'AddToCart',
+        type: 'post',
+        dataType: 'json',
+        data: JSON.stringify({"product_id":$id, "email": email}), //the json is defined here using javascript's dictionary syntax.
+        contentType: 'text/plain',
+
+        success: function (data) { //on success
+            alert("Success.");
+        },
+        error: function (data) { //on error, throw an alert
+            alert("Error while fetching data.");
+        }
+    });
+>>>>>>> 88cc20e7798ba4d0a8148ebfdbc1a120236fa3a8
 
 }
 

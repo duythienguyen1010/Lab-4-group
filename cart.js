@@ -55,6 +55,7 @@ function deleteItem($id) {
         url: Url+'Cart/'+$id,
         type: 'delete',
         dataType: 'json',
+<<<<<<< HEAD
         data: JSON.stringify({"product_id":$id, "email" : email}),
         contentType: 'text/plain',
 
@@ -65,6 +66,19 @@ function deleteItem($id) {
             alert("Failed to delete item");
         }
     })
+=======
+        data: JSON.stringify({"product_id":$id, "email": email}), //the json is defined here using javascript's dictionary syntax.
+        contentType: 'text/plain',
+
+        success: function (data) { //on success
+            alert("Success.");
+        },
+        error: function (data) { //on error, throw an alert
+            alert("Error while fetching data.");
+        }
+    });
+
+>>>>>>> 88cc20e7798ba4d0a8148ebfdbc1a120236fa3a8
 }
 
 function checkOut() {
@@ -73,6 +87,7 @@ function checkOut() {
         url: Url+'Cart',
         type: 'put',
         dataType: 'json',
+<<<<<<< HEAD
         data: JSON.stringify({"email" : email}),
         contentType: 'text/plain',
 
@@ -83,5 +98,17 @@ function checkOut() {
             alert("failed");
         }
     })
+=======
+        data: {"email": email}, //the json is defined here using javascript's dictionary syntax.
+        contentType: 'text/plain',
+
+        success: function (data) { //on success
+            alert("Success.");
+        },
+        error: function (data) { //on error, throw an alert
+            alert("Error while fetching data.");
+        }
+    });
+>>>>>>> 88cc20e7798ba4d0a8148ebfdbc1a120236fa3a8
 
 }
